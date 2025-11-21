@@ -34,10 +34,8 @@ export default function ProjectGallery({
 
   return (
     <>
-      {/* CARD PRINCIPAL CON CARRUSEL */}
       <div className="max-w-4xl bg-white/40 backdrop-blur-sm border border-[var(--border-card)] rounded-xl shadow-md p-6">
         <div className="relative w-full">
-          {/* Imagen grande clickeable */}
           <button
             type="button"
             onClick={() => setZoomAbierto(true)}
@@ -50,7 +48,6 @@ export default function ProjectGallery({
             />
           </button>
 
-          {/* Flecha izquierda */}
           <button
             type="button"
             onClick={handlePrev}
@@ -59,7 +56,6 @@ export default function ProjectGallery({
             ◀
           </button>
 
-          {/* Flecha derecha */}
           <button
             type="button"
             onClick={handleNext}
@@ -69,8 +65,7 @@ export default function ProjectGallery({
           </button>
         </div>
 
-        {/* Puntitos */}
-        <div className="flex justify-center gap-2 mt-4">
+         <div className="flex justify-center gap-2 mt-4">
           {imagenes.map((_, i) => (
             <span
               key={i}
@@ -82,17 +77,16 @@ export default function ProjectGallery({
         </div>
       </div>
 
-      {/* MODAL DE ZOOM CON MENOS “ZOOM” VISUAL */}
+
       {zoomAbierto && (
         <div
           className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center"
-          onClick={() => setZoomAbierto(false)} // click afuera cierra
+          onClick={() => setZoomAbierto(false)} 
         >
           <div
             className="relative max-w-4xl w-full mx-4"
-            onClick={(e) => e.stopPropagation()} // que no se cierre si clickeás adentro
+            onClick={(e) => e.stopPropagation()} 
           >
-            {/* Botón cerrar */}
             <button
               type="button"
               onClick={() => setZoomAbierto(false)}
@@ -101,7 +95,6 @@ export default function ProjectGallery({
               Cerrar ✕
             </button>
 
-            {/* Contenedor de imagen con padding y tamaño limitado */}
             <div className="w-full max-h-[80vh] rounded-xl border border-neutral-700 bg-black/90 overflow-hidden flex items-center justify-center p-4">
               <img
                 src={imagenActual}
@@ -110,7 +103,6 @@ export default function ProjectGallery({
               />
             </div>
 
-            {/* Flechas también en el modal */}
             <button
               type="button"
               onClick={handlePrev}
@@ -126,7 +118,7 @@ export default function ProjectGallery({
               ▶
             </button>
 
-            {/* Puntitos en el modal */}
+
             <div className="flex justify-center gap-2 mt-3">
               {imagenes.map((_, i) => (
                 <span
