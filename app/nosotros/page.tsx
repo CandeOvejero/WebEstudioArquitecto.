@@ -8,12 +8,12 @@ type Slide = {
 };
 
 const slides: Slide[] = [
-  { src: "/nosotros/01.jpg" },
-  { src: "/nosotros/socia.jpg" },
-  { src: "/nosotros/02.jpg" },
-  { src: "/nosotros/03.jpg" },
-  { src: "/nosotros/04.jpg" },
-  { src: "/nosotros/05.jpg" },
+  { src: "/Nosotros/01.jpg" },
+  { src: "/Nosotros/socia.jpg" },
+  { src: "/Nosotros/02.jpg" },
+  { src: "/Nosotros/03.jpg" },
+  { src: "/Nosotros/04.jpg" },
+  { src: "/Nosotros/05.jpg" },
 ];
 
 export default function NosotrosPage() {
