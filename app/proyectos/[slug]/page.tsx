@@ -31,7 +31,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
       <p className="text-neutral-600 mb-6 max-w-2xl">{descripcion}</p>
 
-      {/* Carrusel estilo “Nosotros” + zoom */}
+
       <ProjectGallery imagenes={imagenes} nombreProyecto={nombre} />
     </div>
   );

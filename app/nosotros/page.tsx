@@ -9,6 +9,7 @@ type Slide = {
 
 const slides: Slide[] = [
   { src: "/nosotros/01.jpg" },
+  { src: "/nosotros/socia.jpg" },
   { src: "/nosotros/02.jpg" },
   { src: "/nosotros/03.jpg" },
   { src: "/nosotros/04.jpg" },

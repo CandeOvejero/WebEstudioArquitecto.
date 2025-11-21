@@ -34,9 +34,10 @@ export default function ProjectGallery({
 
   return (
     <>
-      <div className="max-w-4xl card bg-white/40 backdrop-blur-sm border border-[var(--border-card)] rounded-xl shadow-md p-6">
-
+      {/* CARD PRINCIPAL CON CARRUSEL */}
+      <div className="max-w-4xl bg-white/40 backdrop-blur-sm border border-[var(--border-card)] rounded-xl shadow-md p-6">
         <div className="relative w-full">
+          {/* Imagen grande clickeable */}
           <button
             type="button"
             onClick={() => setZoomAbierto(true)}
@@ -49,6 +50,7 @@ export default function ProjectGallery({
             />
           </button>
 
+          {/* Flecha izquierda */}
           <button
             type="button"
             onClick={handlePrev}
@@ -57,6 +59,7 @@ export default function ProjectGallery({
             ◀
           </button>
 
+          {/* Flecha derecha */}
           <button
             type="button"
             onClick={handleNext}
@@ -66,6 +69,7 @@ export default function ProjectGallery({
           </button>
         </div>
 
+        {/* Puntitos */}
         <div className="flex justify-center gap-2 mt-4">
           {imagenes.map((_, i) => (
             <span
@@ -78,15 +82,17 @@ export default function ProjectGallery({
         </div>
       </div>
 
+      {/* MODAL DE ZOOM CON MENOS “ZOOM” VISUAL */}
       {zoomAbierto && (
         <div
           className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center"
-          onClick={() => setZoomAbierto(false)}
+          onClick={() => setZoomAbierto(false)} // click afuera cierra
         >
           <div
-            className="relative max-w-5xl w-full mx-4"
-            onClick={(e) => e.stopPropagation()} // para que el click dentro no cierre
+            className="relative max-w-4xl w-full mx-4"
+            onClick={(e) => e.stopPropagation()} // que no se cierre si clickeás adentro
           >
+            {/* Botón cerrar */}
             <button
               type="button"
               onClick={() => setZoomAbierto(false)}
@@ -95,12 +101,41 @@ export default function ProjectGallery({
               Cerrar ✕
             </button>
 
-            <div className="w-full max-h-[80vh] overflow-hidden rounded-xl border border-neutral-700 bg-black">
+            {/* Contenedor de imagen con padding y tamaño limitado */}
+            <div className="w-full max-h-[80vh] rounded-xl border border-neutral-700 bg-black/90 overflow-hidden flex items-center justify-center p-4">
               <img
                 src={imagenActual}
                 alt={nombreProyecto}
-                className="w-full h-full object-contain"
+                className="max-h-[70vh] w-auto object-contain"
               />
+            </div>
+
+            {/* Flechas también en el modal */}
+            <button
+              type="button"
+              onClick={handlePrev}
+              className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/85 border border-neutral-300 rounded-full w-10 h-10 flex items-center justify-center shadow hover:bg-white"
+            >
+              ◀
+            </button>
+            <button
+              type="button"
+              onClick={handleNext}
+              className="absolute right-4 top-1/2 -translate-y-1/2 bg:white/85 border border-neutral-300 rounded-full w-10 h-10 flex items-center justify-center shadow hover:bg-white"
+            >
+              ▶
+            </button>
+
+            {/* Puntitos en el modal */}
+            <div className="flex justify-center gap-2 mt-3">
+              {imagenes.map((_, i) => (
+                <span
+                  key={i}
+                  className={`h-2 w-6 rounded-full ${
+                    i === index ? "bg-white" : "bg-neutral-500"
+                  }`}
+                />
+              ))}
             </div>
           </div>
         </div>
