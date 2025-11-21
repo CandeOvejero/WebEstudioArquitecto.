@@ -1,26 +1,42 @@
 @import "tailwindcss";
 
+/* PALETA */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg-main: #BFB6B6;
+  --bg-card: #E9E3E3;
+  --border-card: #D7CFCF;
+  --text-dark: #221F1F;
+  --text-mid: #2F2929;
+  --text-light: #4F4747;
+  --accent-dark: #7A6F6F;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* TARJETAS UNIFICADAS */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: 14px;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* TITULOS */
+.section-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  letter-spacing: 0.015em;
 }
 
+.section-subtitle {
+  color: var(--text-mid);
+  margin-top: .25rem;
+  font-size: .95rem;
+}
+
+/* TEXTO */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg-main);
+  color: var(--text-dark);
+  font-family: "Inter", sans-serif;
 }
